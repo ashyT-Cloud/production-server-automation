@@ -26,7 +26,7 @@ resource "aws_iam_role" "github_actions" {
           }
 
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:ashyT-Cloud/production-server-automation:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:ashyT-Cloud@202896792/production-server-automation@1385296891:ref:refs/heads/main"
           }
         }
       }
