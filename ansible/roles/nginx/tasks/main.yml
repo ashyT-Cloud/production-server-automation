@@ -1,0 +1,26 @@
+---
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Configure TaskFlow reverse proxy
+  ansible.builtin.template:
+    src: taskflow.conf.j2
+    dest: /etc/nginx/sites-available/taskflow
+    mode: "0644"
+  notify: Restart nginx
+
+- name: Enable TaskFlow site
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/taskflow
+    dest: /etc/nginx/sites-enabled/taskflow
+    state: link
+  notify: Restart nginx
+
+- name: Remove default Nginx site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: Restart nginx

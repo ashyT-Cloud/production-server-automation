@@ -1,0 +1,5 @@
+---
+app_name: taskflow
+app_user: ubuntu
+app_dir: /opt/taskflow
+github_repo: https://github.com/ashyT-Cloud/production-server-automation.git

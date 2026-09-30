@@ -1,0 +1,19 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install common packages
+  ansible.builtin.apt:
+    name:
+      - curl
+      - git
+      - unzip
+      - ca-certificates
+      - python3-pip
+    state: present
+
+- name: Set timezone
+  community.general.timezone:
+    name: Asia/Kolkata
