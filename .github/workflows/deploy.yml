@@ -107,6 +107,7 @@ jobs:
             --comment "GitHub Actions TaskFlow deployment" \
             --parameters 'commands=[
               "set -e",
+              "export HOME=/root",
               "cd /opt/taskflow",
               "git config --global --add safe.directory /opt/taskflow",
               "git fetch origin main",
