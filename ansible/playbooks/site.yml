@@ -1,6 +1,6 @@
 ---
 - name: Configure TaskFlow application server
-  hosts: app
+  hosts: role_application_server
   become: true
 
   roles:
